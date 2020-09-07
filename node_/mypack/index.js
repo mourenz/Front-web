@@ -1,11 +1,8 @@
 const querystring =  require('querystring')
 const http =  require('http')
-const ejs = require('ejs')
-
 
 let queryParams = 'foo=bar&abc=xyz&abc=123';
 console.log(querystring.parse(queryParams)); //=> { foo: 'bar', abc: [ 'xyz', '123' ] }
-
 
 let server = http.createServer((request, response) => {
     console.log(request.url);
