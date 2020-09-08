@@ -26,6 +26,12 @@ app.route("/route")
     resp.send("post method.......");
 })
 
+//Restful 的支持
+app.get('/rest/:id',(req,resp)=>{
+    console.log(req.params);
+    console.log(req.params.id);
+    resp.send(req.params);
+})
 
 // 应用模块方法  模块的方法需要 module.exports = xxx  即可以访问路由模块的方法
 app.use(departmentRouter);
