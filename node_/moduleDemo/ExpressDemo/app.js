@@ -27,6 +27,6 @@ app.route("/route")
 })
 
 
-// 应用模块方法  模块的方法需要 module.exports = xxx
+// 应用模块方法  模块的方法需要 module.exports = xxx  即可以访问路由模块的方法
 app.use(departmentRouter);
 app.use(userRouter);
