@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>formData</title>
+</head>
+<body>
+
+<script>
+    let formData = new FormData();
+    formData.set("username",'zqg');
+    formData.set("hobbies",'h1');
+    formData.set("hobbies",'h2');
+    formData.set("hobbies",'h3');
+
+
+    console.log(formData.get('username'));
+    console.log(formData.getAll('hobbies'));
+
+    formData.forEach(function (value,key) {
+        console.log("key=>" + key + " value=>" + value);
+    })
+
+    // String join(拼接符)  数组返回字符串方法
+    let arr = ['username=1111','userpwd=222'];
+    console.log(arr.join('&')); //username=1111&userpwd=222
+
+
+</script>
+
+</body>
+</html>
