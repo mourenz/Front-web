@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.1.0/axios.js"></script>
+    <title>登录</title>
+</head>
+<body>
+
+<form id="ff">
+    <input type="text" name="username" placeholder="用户名">
+    <input type="password" name="userpwd" placeholder="密码">
+    <button id="ajaxSubmit">$.ajax登录</button>
+    <button id="axiosSubmit">axios登录</button>
+</form>
+<script>
+    $(function () {
+
+        // $.ajax 方式
+        $("#ajaxSubmit").click(function () {
+            $.ajax({
+                url:'/login',
+                data:$("#ff").serialize(),
+                type:'post',
+                success:function (data) {
+                    console.log(data)
+                },
+                error:function () {
+                    alert("出错了.....")
+                }
+            });
+            return false;
+        })
+
+        // axios 方式
+        $("#axiosSubmit").click(function () {
+
+            console.log($("input[name='username']").val());
+
+            axios.post('/login',{
+                "username":$("input[name='username']").val(),
+                "userpwd":$("input[name='userpwd']").val()
+            }).then((resp)=>{
+                console.log(arguments);
+                console.log(resp)
+            }).catch((err)=>{
+                console.log(err)
+            })
+            return false;
+            // axios.put/delete 
+        })
+
+
+
+
+
+    })
+
+</script>
+</body>
+</html>
