@@ -3,6 +3,10 @@ const express = require('express')
 const departmentRouter = require('./route/department')
 const userRouter = require('./route/user')
 
+// 应用模块方法  模块的方法需要 module.exports = xxx  即可以访问路由模块的方法
+app.use(departmentRouter);
+app.use(userRouter);
+
 const app = express();
 
 app.listen(8888, () => {
@@ -33,6 +37,4 @@ app.get('/rest/:id',(req,resp)=>{
     resp.send(req.params);
 })
 
-// 应用模块方法  模块的方法需要 module.exports = xxx  即可以访问路由模块的方法
-app.use(departmentRouter);
-app.use(userRouter);
+
