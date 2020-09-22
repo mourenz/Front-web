@@ -13,13 +13,17 @@
 <div id="app">
     {{msg}}
     <input type="text" v-model="msg"> 双向指令
+    <br>
+    {{num}}
+    <input type="button" @click="num++">
 </div>
 
 <script>
     var vue = new Vue({
         el:"#app",
         data:{
-            msg:"hello vue"
+            msg:"hello vue",
+            num:0
         }
     })
 </script>
