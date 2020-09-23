@@ -1,13 +1,12 @@
 let a = require('./a')
 let data = require('./data')
 
-import jsonData from "./dataJson";
+let jsonData = require('./dataJson')
 
 
 console.log(a);
 console.log(data)
 console.log(jsonData)
-
 console.log(" webpack _")
 
 

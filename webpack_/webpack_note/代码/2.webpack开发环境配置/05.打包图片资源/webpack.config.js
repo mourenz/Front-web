@@ -8,7 +8,7 @@ module.exports = {
     path: resolve(__dirname, 'build')
   },
   module: {
-    rules: [
+    rules: [ // 配置对象 数组
       {
         test: /\.less$/,
         // 要使用多个loader处理用use
