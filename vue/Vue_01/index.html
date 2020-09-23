@@ -12,23 +12,56 @@
 <body>
 <div id="app">
     {{msg}}
+    <br>
+    <button v-bind:title="mytitle">v-bind 绑定属性</button>
+    <br>
     <input type="text" v-model="msg"> 双向指令
     <br>
     {{num}}
     <input type="button" @click="num++">
+    <br>
+    <input type="button" @click="show" value="绑定show">
+    <br>
+
+    <button @click="start">开始</button>
+
+    <button @click="stop">停止</button>
+    <br>
+    <p v-text="showMsg"></p>
+
+
 </div>
 
 <script>
     var vue = new Vue({
-        el:"#app",
-        data:{
-            msg:"hello vue",
-            num:0
+        el: "#app",
+        data: {
+            msg: "hello vue",
+            mytitle: "自定义title",
+            num: 0,
+            intervalId: null,
+            showMsg:"这是一个跑马灯"
+        },
+        methods: {
+            show: function() {
+                alert(this.msg)
+                alert("show")
+            },
+            start: function () {
+                if(this.intervalId!=null) return;
+                this.intervalId = setInterval(() => {
+                        let start = this.showMsg.substring(0, 1)
+                        let end = this.showMsg.substring(1);
+                        this.showMsg = end + start;
+                    },
+                    500)
+            },
+            stop: function () {
+                setTimeout(this.intervalId);
+            }
         }
     })
 </script>
-
-
 
 
 </body>
