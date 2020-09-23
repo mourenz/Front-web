@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="num1">
+    <input type="text" v-model="num2">
+    <select v-model="opt">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <button  @click="calc">=</button>
+    <input type="text" v-model="result"> <br>
+    <input type="text" placeholder="id"  v-model="obj.id">
+    <input type="text" placeholder="name" v-model="obj.name">
+    <button @click="add">add</button>
+<!-- v-for -->
+    <p v-for="(item,index) in list" :key="item.id"> <!-- :key="item.id" 确定唯一值  只能为数字或者字符串-->
+        <input type="checkbox"> {{item.id}} ---{{item.name}}
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"02",
+            num1:0,
+            num2:0,
+            opt:"+",
+            result:null,
+            obj:{
+                id:null,
+                name:null
+            },
+            list:[
+                {id:1,name:"zqg"},
+                {id:2,name:"zqg2"},
+                {id:3,name:"zqg3"},
+                {id:4,name:"zqg4"}
+            ]
+        },
+        methods:{
+            calc(){
+                let calcString = "parseInt("+this.num1+")" + this.opt +"parseInt("+this.num2+")"
+                this.result = eval(calcString) //eval(String) 可以解析字符串原本的意思 并且有返回值
+            },
+            add(){
+               /* this.list.forEach(()=>{
+
+                })*/
+                this.list.push({
+                    id:this.obj.id,
+                    name:this.obj.name
+                })
+
+
+
+            }
+        }
+
+    })
+
+</script>
+
+
+</body>
+</html>
