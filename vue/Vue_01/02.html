@@ -26,6 +26,7 @@
 <!-- v-for -->
     <p v-for="(item,index) in list" :key="item.id"> <!-- :key="item.id" 确定唯一值  只能为数字或者字符串-->
         <input type="checkbox"> {{item.id}} ---{{item.name}}
+        <a href="" @click.prevent="dele(item.id)">删除</a>
     </p>
 </div>
 
@@ -42,6 +43,7 @@
                 id:null,
                 name:null
             },
+            delId:null,
             list:[
                 {id:1,name:"zqg"},
                 {id:2,name:"zqg2"},
@@ -62,10 +64,17 @@
                     id:this.obj.id,
                     name:this.obj.name
                 })
-
-
+            },
+            dele(id){
+                this.list.some((item,i)=>{ // some 也会遍历
+                    if(item.id == id){
+                        this.list.splice(i,1); //删除指定元素
+                        return true; // 返回 true 代表找到
+                    }
+                })
 
             }
+
         }
 
     })

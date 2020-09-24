@@ -29,6 +29,9 @@
     <br>
     <p v-text="showMsg"></p>
 
+    <a href="http://www.baidu.com" @click.prevent="prevent">阻止默认行为</a><br>
+
+
 
 </div>
 
@@ -55,10 +58,14 @@
                         this.showMsg = end + start;
                     },
                     500)
+                console.log(this.intervalId)
             },
             stop: function () {
                 clearInterval(this.intervalId);
                 this.intervalId = null;
+            },
+            prevent:function () {
+                alert("阻止了默认行为发生")
             }
         }
     })
