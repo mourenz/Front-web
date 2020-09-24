@@ -23,11 +23,14 @@
     <input type="text" placeholder="id"  v-model="obj.id">
     <input type="text" placeholder="name" v-model="obj.name">
     <button @click="add">add</button>
+    <br>
 <!-- v-for -->
-    <p v-for="(item,index) in list" :key="item.id"> <!-- :key="item.id" 确定唯一值  只能为数字或者字符串-->
+    <input type="text" placeholder="输入关键字" v-model="keywords">
+    <p v-for="(item,index) in search(keywords)" :key="item.id"> <!-- :key="item.id" 确定唯一值  只能为数字或者字符串-->
         <input type="checkbox"> {{item.id}} ---{{item.name}}
         <a href="" @click.prevent="dele(item.id)">删除</a>
     </p>
+
 </div>
 
 <script>
@@ -49,7 +52,8 @@
                 {id:2,name:"zqg2"},
                 {id:3,name:"zqg3"},
                 {id:4,name:"zqg4"}
-            ]
+            ],
+            keywords:""
         },
         methods:{
             calc(){
@@ -72,7 +76,15 @@
                         return true; // 返回 true 代表找到
                     }
                 })
-
+            },
+            search(keywords){ //搜索
+                let newList = [];
+                this.list.forEach((item)=>{
+                    if(item.name.indexOf(keywords)!=-1){
+                        newList.push(item);
+                    }
+                })
+                return newList;
             }
 
         }
