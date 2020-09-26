@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div @keyup.f2="show">
+      没有处理过的时间：  {{now}}
+        <br>
+        过滤器处理过的时间: {{now|dataForamt}} <br>
+        按下f2即可显示弹窗信息
+        <br>
+        <input type="text" v-focus placeholder="自定义v-focus指令">
+    </div>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            msg: "hello vue",
+            now: new Date()
+        },
+        methods: {
+            show: function () {
+                alert(this.msg);
+                console.log(this.msg);
+            }
+        },
+        filters: {//自定义过滤器
+            dataForamt: function (dataString, pattern = "") {
+                let dt = new Date(dataString);
+                let year = dt.getFullYear();
+                let month = dt.getMonth().toString().padStart(2, '0');// 填充两位 不够用0补齐
+                let day = dt.getDate().toString().padStart(2, '0');
+                if (pattern.toLowerCase() === "yyyy-mm-dd") {
+                    return `${year}-${month}-${day}`
+                } else {
+                    let h = dt.getHours().toString().padStart(2, '0');
+                    let m = dt.getMinutes().toString().padStart(2, '0');
+                    let s = dt.getSeconds().toString().padStart(2, '0');
+                    return `${year}-${month}-${day} :${h}:${m}:${s}`;
+                }
+            }
+        },
+        directives: {
+            focus: {
+                bind: function (el) {
+                    console.log("绑定元素时执行")
+
+                },
+                inserted: function (el) {
+                    el.focus();
+                    console.log("插入dom中执行此方法")
+                    alert("插入dom中执行");
+                },
+                update: function (el) {
+
+
+                }
+
+            }
+        }
+
+    });
+
+    Vue.config.keyCodes.f2 = 113;
+
+
+</script>
+
+</body>
+</html>
