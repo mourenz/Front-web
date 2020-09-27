@@ -16,7 +16,9 @@
         过滤器处理过的时间: {{now|dataForamt}} <br>
         按下f2即可显示弹窗信息
         <br>
-        <input type="text" v-focus placeholder="自定义v-focus指令">
+        <input type="text" v-focus placeholder="自定义v-focus指令"><br>
+        <input type="text" v-color="'darkred'" placeholder="自定义v-color指令">
+
     </div>
 </div>
 <script>
@@ -55,15 +57,23 @@
 
                 },
                 inserted: function (el) {
-                    el.focus();
-                    console.log("插入dom中执行此方法")
+                    el.focus(); // 这是行为 需要插入 dom中才能执行
+                   console.log("插入dom中执行此方法")
                     alert("插入dom中执行");
                 },
                 update: function (el) {
 
-
                 }
-
+            },
+            color:{
+                bind:function (el,binding) {  // el:绑定的元素  binding：绑定的的对象
+                    // el.style.color = "red" //样式  用于bind函数中
+                    el.style.color =  binding.value;
+                },
+                inserted: function (el) {
+                },
+                update: function (el) {
+                }
             }
         }
 
