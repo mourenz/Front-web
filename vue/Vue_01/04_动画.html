@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/animate.css/2.0/animate.css"></script>
+</head>
+<body>
+
+  <div id="app">
+    <button value="toggle" @click="flag=!flag">toggle</button>
+
+    <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" :duration="400">
+      <p v-if="flag">显示</p>
+    </transition>
+
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data() {
+        return {
+          flag:false
+        }
+      },
+      methods: {
+        
+      },
+    })
+
+  </script>
+
+
+
+</body>
+</html>
