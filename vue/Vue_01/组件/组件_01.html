@@ -12,7 +12,17 @@
 
 <div id="app">
     <my-comp1></my-comp1>
+    <my-comp2></my-comp2>
+    <my-comp3></my-comp3>
+    <login></login>
 </div>
+
+
+<template id="myComp3">
+    <div>
+        <h3>这是第三个组件</h3>
+    </div>
+</template>
 
 <script>
 
@@ -21,6 +31,17 @@
     })
 
     Vue.component("my-comp1",comp1);
+
+
+    //直接创建组件
+    Vue.component("myComp2",{
+        template:"<h2>直接创建组件</h2>" // 只能有一个根元素
+    })
+
+    //第三种创建组件
+    Vue.component("myComp3",{
+        template:"#myComp3"
+    })
 
     // 必须放在上面
 
@@ -31,7 +52,17 @@
                 msg: "组件",
             }
         },
-        methods: {}
+        methods: {},
+        components:{
+            login:{
+              template: "<h1>这是私有登录组件 <span style='color:red'>{{ msg2 }} </span> </h1>",
+              data:function () {
+                return {
+                    msg2:"这是私有组件中的data"
+                }
+              }
+            }
+        }
     })
 
 
