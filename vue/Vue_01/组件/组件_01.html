@@ -7,14 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>组件</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease;
+        }
+
+
+
+    </style>
 </head>
 <body>
 
 <div id="app">
+    <a href="" @click.prevent="flag=true">登录</a>
+    <a href="" @click.prevent="flag=!flag">注册</a>
+    <login v-if="flag"></login>
+    <regist v-else="flag"></regist>
+
+    <a href="" @click.prevent="compName='login'">登录</a>
+    <a href="" @click.prevent="compName='regist'">注册</a>
+
+    <transition mode="out-in">
+    <!--组件占位符-->
+    <compoment :is="compName"></compoment>
+    </transition>
+
+
+
     <my-comp1></my-comp1>
     <my-comp2></my-comp2>
     <my-comp3></my-comp3>
-    <login></login>
+
 </div>
 
 
@@ -50,6 +79,8 @@
         data() {
             return {
                 msg: "组件",
+                flag:true,
+                compName:"login"
             }
         },
         methods: {},
@@ -58,9 +89,17 @@
               template: "<h1>这是私有登录组件 <span style='color:red'>{{ msg2 }} </span> </h1>",
               data:function () {
                 return {
-                    msg2:"这是私有组件中的data"
+                    msg2:"这是私有登录组件中的data"
                 }
               }
+            },
+            regist:{
+                template: "<h1>这是私有注册组件 <span style='color:red'>{{ msg2 }} </span> </h1>",
+                data:function () {
+                    return {
+                        msg2:"这是私有注册组件中的data"
+                    }
+                }
             }
         }
     })
