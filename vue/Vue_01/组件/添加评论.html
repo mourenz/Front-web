@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <comment-post @func="getComments"></comment-post>
+    <hr>
+    <div v-for="(item,i) in commentsList" :key="item.id">
+        <span>评论人： {{item.user}}</span>
+        <span>评论内容： {{item.content}}</span>
+    </div>
+
+</div>
+<template id="commentPost">
+    <div>
+        <textarea v-model="content" placeholder="输入评论内容"></textarea>
+        <input type="text" v-model="user" placeholder="用户">
+        <input type="submit"  @click.prevent="postComment" value="评论">
+    </div>
+</template>
+
+<script>
+    let commentPost = {
+        template: "#commentPost",
+        data() {
+            return {
+                content:null,
+                user:null
+            }
+        },
+        methods: {
+            postComment() {
+                let oneComment={id:Date.now(),content:this.content,user:this.user};
+                console.log(oneComment)
+                let list = JSON.parse(localStorage.getItem("cmts") || '[]');
+                list.unshift(oneComment); // 头插法  返回 1
+                localStorage.setItem("cmts",JSON.stringify(list));  //将 list转换为 字符串 后存储
+                this.content = this.user ="";
+                this.$emit('func');
+            }
+        }
+    }
+
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                commentsList:null,
+            };
+        },
+        methods: {
+            getComments() {
+                this.commentsList = JSON.parse(localStorage.getItem("cmts") || '[]');
+            }
+        },
+        components: {
+            commentPost: commentPost
+        },
+        create() {
+            this.getComments();
+        }
+    })
+
+</script>
+
+</body>
+</html>

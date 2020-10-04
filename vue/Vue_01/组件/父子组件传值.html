@@ -12,11 +12,29 @@
 
 <div id="app">
     <mycomp :parentmsg="msg"></mycomp>
-
+    <hr>
+    <mycomp2 @func="showMsg"></mycomp2>
 </div>
 
 
+<template id="mycomp2">
+    <div>
+        <h2>mycomp2组件</h2>
+        <input type="submit" value="触发父组件事件" @click="mycomp2Click('子组件的值')">
+    </div>
+</template>
+
 <script>
+
+    let mycomp2 = {
+        template: "#mycomp2",
+        methods:{
+            mycomp2Click(data){
+                this.$emit('func',data)
+            }
+        }
+    }
+
     new Vue({
         el:"#app",
         data(){
@@ -25,19 +43,30 @@
             }
         },
         methods:{
+            showMsg(data){
+                alert(this.msg+"----"+data);
+            }
         },
         components:{
             mycomp:{
-                template:"<h1>这是子组件 获取父组件的值 <span style='color:red'>{{parentmsg}}</span><br>子组件的值<span style='color: blue'>{{sonMsg}}</span></h1>",
+                template:"<h1 @click.self='changeMycomp'>这是子组件 获取父组件的值[子组件点击事件] <span style='color:red'>{{parentmsg}}</span><br>子组件的值 <span style='color: blue'>{{sonMsg}}</span></h1>",
                 data() {
                     return {
                         sonMsg:"子组件msg",
                     };
                 },
+                methods:{
+                    changeMycomp(){
+                        alert(this.sonMsg)
+                    }
+                },
                 props:['parentmsg'], //属性数组 用户组件接受父组件传值  只读 不可修改 不能驼峰 会找不到
-            }
+            },
+            mycomp2
         }
-    })
+    });
+
+
 
 
 </script>
