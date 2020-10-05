@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <p ref="p_text">这是一个文本</p>
+    <input type="button" @click="getPtext" value="获取文本值">
+    <my-login ref="myLogin"></my-login>
+    <input type="button" @click="getCompomentDom" value="获取组件中的Dom">
+
+</div>
+<template id="myLogin">
+    <div>
+        <h1 @click="showMsg">这是登录组件</h1>
+    </div>
+</template>
+
+
+<script>
+    let myLogin = {
+        template: "#myLogin",
+        data(){
+          return{
+              msg:"组件的msg",
+          }
+        },
+        methods: {
+            showMsg(){
+                alert("这是组件的方法")
+            }
+        }
+    };
+
+    new Vue({
+        el: "#app",
+        methods: {
+            getPtext() {
+                alert(this.$refs.p_text.innerText);
+            },
+            getCompomentDom(){
+                console.log(this.$refs.myLogin.msg); // 获取子组件中的msg
+                console.log(this.$refs.myLogin.showMsg); // 获取子组件中的msg
+                this.$refs.myLogin.showMsg(); // 调用组件的showMsg)
+            }
+        },
+        components: {
+            myLogin: myLogin
+        }
+    })
+</script>
+</body>
+</html>

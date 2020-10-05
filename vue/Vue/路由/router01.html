@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/2.0.0-beta.4/vue-router.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <router-view></router-view>
+    <router-link to="/login">登录</router-link> <!--不需要# -->
+    <router-link to="/register">注册</router-link>
+</div>
+
+<template id="login">
+    <div>
+        <h1>登录组件</h1>
+    </div>
+</template>
+<template id="registe">
+    <div>
+        <h1>注册组件</h1>
+    </div>
+</template>
+
+<script>
+    let login = {
+        template: "#login",
+    };
+    let register = {
+        template: "#registe"
+    };
+
+    Vue.component("mylogin", login); // 全局注册组件
+    Vue.component("myregister", register);
+
+    const routes = [
+        {path: '/login', component: login}, //component 后边必须为 变量名
+        {path: '/register', component: register},
+    ];
+
+    const route = new VueRouter({
+        routes
+    });
+
+    new Vue({
+        el: "#app",
+        data() {
+            return {}
+        },
+        methods: {},
+        router: route //关联路由
+    })
+
+</script>
+
+</body>
+</html>
