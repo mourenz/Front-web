@@ -8,29 +8,59 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/2.0.0-beta.4/vue-router.js"></script>
+    <style>
+        .router-link-active{
+            font-size: 20px;
+            font-style: italic;
+            background-color: pink;
+            text-decoration: underline;
+        }
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(140px);
+        }
+
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease;
+        }
+
+
+
+    </style>
 </head>
 <body>
 
 <div id="app">
-    <router-view></router-view>
-    <router-link to="/login">登录</router-link> <!--不需要# -->
-    <router-link to="/register">注册</router-link>
+
+    <router-link to="/login?id=100" tag="span">登录</router-link>
+    <router-link to="/register/zs">注册</router-link>
+
+    <transition mode="out-in">  <!--设置动画-->
+         <router-view></router-view>  <!--路由占位符 必须有-->
+    </transition>
 </div>
 
 <template id="login">
     <div>
-        <h1>登录组件</h1>
+        <h1>登录组件--{{$route.query.id}}</h1>
     </div>
 </template>
 <template id="registe">
     <div>
-        <h1>注册组件</h1>
+        <h1>注册组件---{{$route.params.name}}</h1>
     </div>
 </template>
 
 <script>
     let login = {
         template: "#login",
+        data(){
+            return{
+
+            }
+        }
     };
     let register = {
         template: "#registe"
@@ -40,8 +70,9 @@
     Vue.component("myregister", register);
 
     const routes = [
+        {path:'/',redirect:'/login'},
         {path: '/login', component: login}, //component 后边必须为 变量名
-        {path: '/register', component: register},
+        {path: '/register/:name', component: register},
     ];
 
     const route = new VueRouter({
