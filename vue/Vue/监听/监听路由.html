@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/2.0.0-beta.4/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/login">登录</router-link>
+    <router-link to="/register">注册</router-link>
+    <router-view></router-view>
+</div>
+
+<script>
+    let login = {
+        template: "<h1>登录组件</h1>"
+    };
+    let register = {
+        template: "<h1>注册组件</h1>"
+    };
+
+
+    const router = new VueRouter({
+        routers: [
+            {path: "/login", component: login},
+            {path: "/register", component: register},
+        ]
+    });
+
+
+    new Vue({
+        el: "#app",
+        data() {
+            return {}
+        },
+        methods: {},
+        router,
+        watch: {
+            "this.$router.path": function (newValue, oldValue) {
+                console.log("this.$router.path 发生了变化....")
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
