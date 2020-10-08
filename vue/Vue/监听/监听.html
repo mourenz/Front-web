@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/2.0.0-beta.4/vue-router.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="secondName">
+    <input type="text" v-model="fullName">
+</div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data(){
+            return {
+                firstName:"",
+                secondName:"",
+                fullName:""
+            }
+        },
+        watch:{
+            firstName:function (newValue,oldValue) {
+                console.log("当firstName发生改变 触发的函数")
+                console.log("newValue=>"+newValue);
+                console.log("oldValue=>"+oldValue);
+                this.fullName = this.firstName+"----"+this.secondName;
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>
