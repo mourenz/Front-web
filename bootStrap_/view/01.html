@@ -8,8 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <style>
+
+        body {
+            height: 2000px;
+        }
+
         [class^="col"] {
-            /*border: 1px solid #ccc*/
+            border: 1px solid #ccc
         }
 
     </style>
@@ -137,15 +142,15 @@
         <div class="col-md-6">
             <form action="" class="form-horizontal">
                 <div class="row">
-                  <div class="col-md-3 text-center">
-                      <lable>姓名</lable>
-                  </div>
+                    <div class="col-md-3 text-center">
+                        <lable>姓名</lable>
+                    </div>
                     <div class="col-md-9">
                         <input type="text" class="form-control" placeholder="请输入姓名">
                     </div>
                 </div>
                 <br>
-                <div class="row">
+                <div class="row has-error">
                     <div class="col-md-3 text-center">
                         <lable>密码</lable>
                     </div>
@@ -153,13 +158,27 @@
                         <input type="password" class="form-control" placeholder="请输入密码">
                     </div>
                 </div>
-
             </form>
 
         </div>
         <div class="col-md-6">
+            <div class="col-md-6">
+                <!--字体图标必须为 span标签-->
+                <span class="glyphicon glyphicon-alert"></span>
+                <span class="glyphicon glyphicon-search"></span>
+            </div>
 
+            <div class="col-md-6">
+                <!--字体图标必须为 span标签-->
+                <button role="button" class="btn btn-primary">确定</button>
 
+                <div class="row">  <!--一行 肯定会换行-->
+                    <div class="col-md-2">
+                        1111
+                    </div>
+                    <div class="col-md-10">2222</div>
+                </div>
+            </div>
         </div>
 
     </div>
