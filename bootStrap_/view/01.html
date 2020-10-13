@@ -8,8 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <style>
-        [class^="col"]{
-            border:1px solid #ccc
+        [class^="col"] {
+            border: 1px solid #ccc
         }
 
     </style>
@@ -21,13 +21,36 @@
 <div class="container">
     <!--栅格系统 一行分为 12列-->
     <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">1</div>  <!--大屏一列占3份  中屏一列占4份 自动监听屏幕尺寸-->
+        <div class="col-lg-3">2</div>
+        <div class="col-lg-3">3</div>
+        <!--列的栅格-->
+        <div class="col-lg-3">
+            <!-- 加 class="row" 是为了防止 列的边距-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">4-1-1</div>
+                        <div class="col-md-6">4-1-2</div>
+                    </div>
+                </div>
+                <div class="col-md-6">4-2</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--列偏移-->
+    <div class="row">
         <div class="col-md-3">1</div>
-        <div class="col-md-3">2</div>
-        <div class="col-md-3">3</div>
-        <div class="col-md-3">4</div>
+        <div class="col-md-3 col-md-offset-6">2</div>
+    </div>
+
+    <!--居中-->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">6</div>
     </div>
 </div>
-
 
 
 </body>
