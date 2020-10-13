@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <style>
         [class^="col"] {
-            border: 1px solid #ccc
+            /*border: 1px solid #ccc*/
         }
 
     </style>
@@ -46,10 +46,125 @@
         <div class="col-md-3 col-md-offset-6">2</div>
     </div>
 
-    <!--居中-->
+    <!--居中 列总和为 12 -->
     <div class="row">
         <div class="col-md-6 col-md-offset-3">6</div>
     </div>
+
+    <!--导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">底部导航栏</a>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <h1>bootstrap的标题</h1>
+        <mark>mark标签</mark>
+        <p class="lead">p段落p段落p段落</p>
+        <p class="text-left">段落居左段落居左段落居左段落居左段落居左</p>
+        <p class="text-right">段落居右段落居右段落居右段落居右段落居右段落居右</p>
+        <p class="text-center">段落居中段落居中段落居中段落居中段落居中段落居中</p>
+
+        <kbd>cmd命令</kbd>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <table class="table table-responsive table-striped table-hover">
+                    <thead>
+                    <tr class="warning">
+                        <th>表头1</th>
+                        <th>表头1</th>
+                        <th>表头1</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form action="" role="form" class="">  <!-- 当设置 class class="form-inline"  class="form-inline" 并排显示-->
+                <!--
+                外层 form-group
+                input 为 form-control
+                -->
+                <div class="form-group">
+                    <lable>姓名</lable>
+                    <input class="form-control" type="text"/>
+                </div>
+                <div class="form-group">
+                    <lable>email</lable>
+                    <input class="form-control" type="email"/>
+                </div>
+                <div class="form-group">
+                    <lable>文件</lable>
+                    <input class="form-control" type="file"/>
+                </div>
+                <div class="form-group">
+                    <lable>时间</lable>
+                    <input class="form-control" type="date"/>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            使用栅格布局
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <form action="" class="form-horizontal">
+                <div class="row">
+                  <div class="col-md-3 text-center">
+                      <lable>姓名</lable>
+                  </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="请输入姓名">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <lable>密码</lable>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="col-md-6">
+
+
+        </div>
+
+    </div>
+
+
 </div>
 
 
