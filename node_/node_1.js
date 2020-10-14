@@ -1,8 +1,8 @@
-console.log("hello node")
+console.log("hello node");
 
 //模板字符串
 function templateString(name,age){
-    return `姓名${name},年龄${age}`;
+    return `姓名${name},年龄${age}`
 }
 
 // 默认值 0 null undefined false  == false
@@ -10,23 +10,23 @@ function defalutValue(x){
     return x || 1;
 }
 
-console.log(templateString('zqg',20))
+console.log(templateString('zqg',20));
 
 
 // => 函数
 let fun1 = function(){
     console.log();
-}
+};
 // 等同于 
 let fun2 = ()=>{
     console.log("fun2.....");
-}
+};
 
 //参数的匿名函数
 let fun3 =(x,y)=>{
     console.log("fun3()....");
     return x+y;
-}
+};
 
 console.log(fun3(3, 5)); 
 
@@ -64,10 +64,10 @@ class Mouse extends Animal{
     }
 }
 
-new Mouse('jerry',5).showName()
+new Mouse('jerry',5).showName();
 
 //--------
-console.trace()
+console.trace();
 
 console.log(__filename);
 console.log(__dirname);
@@ -76,7 +76,7 @@ console.log("===module===");
 console.log(module);
 
 
-const obj = require('./sum.js')
+const obj = require('./sum.js');
 console.log(obj.sum(1, 2));
 
 

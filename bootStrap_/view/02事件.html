@@ -11,17 +11,73 @@
         [class^="col"] {
             border: 1px solid #cccccc;
         }
-
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div>
+    <div class="row">
         <div class="col-md-2">2</div>
         <div class="col-md-10">10</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    下拉菜单
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">4</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            按钮工具栏
+            <div class="btn-toolbar">  <!-- btn-toolbar > btn-group-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" class="btn btn-primary"><span class="glyphicon glyphicon-ban-circle"></span></button>
+                    <button type="button" class="btn btn-warning" class="btn btn-primary"><span class="glyphicon glyphicon-align-right"></span></button>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ban-circle"></span></button>
+                    <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-align-right"></span></button>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ban-circle"></span></button>
+                    <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-align-right"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="btn-group">
+                <button type="button" role="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">下拉菜单<span class="caret"></span></button>
+                <div class="dropdown-menu" role="menu">
+                    <li><a href="#">点我</a></li>
+                    <li><a href="#">点我</a></li>
+                    <li><a href="#">点我</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+
     </div>
 </div>
 
 </body>
+<script src="../assets/js/jquery.2_0_2.js"></script>
+<script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+<script>
+    $('.dropdown-toggle').dropdown(); // 触发函数
+</script>
+
 </html>
