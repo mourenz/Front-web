@@ -33,7 +33,7 @@ Page({
     console.log("获取实参数值_",e.currentTarget.dataset.operation); // operation 为页面变量名 即为 data-xxx
     this.setData({
       num:this.data.num+e.currentTarget.dataset.operation, 
-      // 获取 data的值 需要 this.data.num 和vue不同
+      // 获取 data的值 需要 this.data.num 和vue不同 修改
     })
   },
   /**
