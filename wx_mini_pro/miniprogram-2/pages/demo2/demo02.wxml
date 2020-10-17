@@ -1,0 +1,27 @@
+<!--pages/demo2/demo02.wxml-->
+<text>pages/demo2/demo02.wxml</text>
+
+
+<!-- list为对象数组 -->
+<text wx:for="{{list}}" wx-for:key="Date.now()" wx:for-item="item" wx:for-index="index">
+<!--普通数组 用 wx:key="*this"-->
+{{item.name}}---{{item.age}}
+</text>
+<view>
+  -----遍历普通对象------
+<!-- 遍历对象 -->
+<text wx:for="{{person}}" wx-for:key="Date.now()" wx:for-item="value" wx:for-index="key">
+  {{key}}-----{{value}}
+</text>
+</view>
+
+<!-- 事件绑定 -->
+<view>
+<text>事件绑定</text>
+  <text>num值为: {{num}}</text>
+  <input type="text" bindinput="handleInput" placeholder="111"/>
+  <button bindtap="bindButton" data-operation="{{1}}">+</button>
+</view>
+
+
+
