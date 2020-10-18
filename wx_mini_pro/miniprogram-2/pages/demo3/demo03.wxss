@@ -1,0 +1,17 @@
+/**
+  不需要导入  在页面引入
+  单位 rpx  自适应
+  规定 屏幕宽度尺寸 * px = 750rpx
+
+  750 px = 750rpx ;==> 1rpx = 1px
+  350 px = 750rpx ;==> 1rpx = 0.5px
+   --> 1px =750rpx/350  
+   --> 100px = 750rpx*100/350
+  
+
+*/
+view{
+  height: 200rpx;
+  width: calc(750rpx*100/350);
+  background-color: aqua;
+}
