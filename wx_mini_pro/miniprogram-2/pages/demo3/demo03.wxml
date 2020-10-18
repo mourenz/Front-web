@@ -1,8 +1,8 @@
 <view>
 
-<!--decode 解码 即为 &nbsp 为空格 selectable 文本可选择   -->
-<text decode="true" selectable="true">
-   text &nbsp 111
+<!--decode 解码 即为 &nbsp; 为空格 selectable 文本可选择   -->
+<text decode selectable>
+   text &nbsp; 111
 </text>
 
 </view>
