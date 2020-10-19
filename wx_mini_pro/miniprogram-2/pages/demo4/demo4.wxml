@@ -1,0 +1,8 @@
+<view>
+<swiper autoplay interval="2000" circular indicator-dots indicator-color="red">
+<swiper-item><image mode="widthFix" src="https://img.alicdn.com/imgextra/i4/6000000001122/O1CN01h1tZ5p1K9v0sfGQ4D_!!6000000001122-0-octopus.jpg"></image></swiper-item>
+<swiper-item>
+  <image mode="widthFix" src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg"></image>
+</swiper-item>
+</swiper>
+</view>

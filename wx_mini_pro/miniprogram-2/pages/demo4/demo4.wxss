@@ -1,0 +1,16 @@
+/* pages/demo4/demo4.wxss */
+
+/* 
+swiper 轮播图默认样式 宽度默认为 100% 
+swiper等比例缩放计算公式
+swiper 高度 / swiper宽度 = 原图高度 / 原图宽度
+swiper高度：原图高度*swiper宽度 / 原图宽度
+*/
+swiper{
+  width: 100%;
+  height: calc(100vm*280/520);
+}
+
+image{
+  width: 100%;
+}

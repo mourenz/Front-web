@@ -10,10 +10,11 @@
   
 
 */
-view{
+#v1{
   height: 400rpx;
   width: calc(750rpx*100/350);
   background-color: aqua;
+  border: 1px solid red;
 }
 
 image{
