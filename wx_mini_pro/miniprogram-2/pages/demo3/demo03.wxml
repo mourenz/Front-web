@@ -5,4 +5,7 @@
    text &nbsp; 111
 </text>
 
+
+<image mode="aspectFit" src="./assets/img/JAVA.png"/>
+
 </view>

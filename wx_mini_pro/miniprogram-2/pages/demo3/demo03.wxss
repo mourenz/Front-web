@@ -11,7 +11,12 @@
 
 */
 view{
-  height: 200rpx;
+  height: 400rpx;
   width: calc(750rpx*100/350);
   background-color: aqua;
+}
+
+image{
+  height: calc(750rpx*150/350);
+  width:calc(750rpx*150/350);
 }
