@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    html:'<div ><ul style="color:red"><li>标题1</li><li>标题2</li></ul></div>',
+    "getPhoneNumber":function(e){
+      console.log("getPhoneNumber",e);
+    },
+    "getUserInfo":function(e) {
+      console.log("getUserInfo",e);
+    }
   },
 
   /**
