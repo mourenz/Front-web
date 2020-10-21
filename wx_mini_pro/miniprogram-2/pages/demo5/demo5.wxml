@@ -1,0 +1,10 @@
+<!-- 为 a连接  url="xxx" 不需要.wxml
+open-type="navigate" 默认值 保留当前页面 但是不能跳转到 toolbar上的页面  
+open-type="redirect" 重定向 关闭当前页面 跳转到其他页面
+
+
+-->
+<navigator
+ target="self" url="/pages/demo4/demo4"
+ open-type="redirect"
+ >轮播图</navigator>
