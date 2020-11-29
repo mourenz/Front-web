@@ -4,7 +4,28 @@ open-type="redirect" 重定向 关闭当前页面 跳转到其他页面
 
 
 -->
-<navigator
- target="self" url="/pages/demo4/demo4"
- open-type="redirect"
- >轮播图</navigator>
+<navigator target="self" url="/pages/demo4/demo4" open-type="redirect">轮播图</navigator>
+
+
+<icon type="success" size="60"></icon>
+<!-- 单选框 -->
+<radio-group bindchange="getRadioVlaue">
+  <radio color="red" value="female">女</radio>
+  <radio value="male">男</radio>
+</radio-group>
+<!-- 复选框 -->
+<checkbox-group bindchange="checkboxClick">
+  <checkbox  value="{{item.value}}" wx:for="{{checkBoxItem}}" >
+    {{item.name}}
+  </checkbox>
+</checkbox-group>
+
+<view>
+单选框选中的值 {{gender}}
+</view>
+
+<view>
+复选框选中的值{{checkValue}}
+
+
+</view>

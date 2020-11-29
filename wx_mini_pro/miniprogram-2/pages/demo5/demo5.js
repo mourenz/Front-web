@@ -5,7 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    gender:"",
+    checkBoxItem:[
+      {
+        id:1,
+        name:"苹果",
+        value:"apple",
+      },
+      {
+        id:2,
+        name:"香蕉",
+        value:"balana",
+      }
+    ],
+    checkValue:[]
+  },
+  //单选
+  getRadioVlaue:function(e){
+    console.log(e);
+    this.setData({
+      gender: e.detail.value
+    })
+  },
+  // 复选框
+  checkboxClick:function(e){
+    console.log(e);
+    let values = e.detail.value;
+    this.setData({
+      checkValue:values
+    })
+    
+    
   },
 
   /**
