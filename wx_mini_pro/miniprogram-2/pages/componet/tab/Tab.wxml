@@ -1,5 +1,8 @@
-<view>
- tab组件
-
-
+<view class="title">
+  <view bindtap="handleClick" wx:for="{{list}}" wx:key="id" 
+  class="title_item {{item.isActive?'active':''}}" 
+  data-index="{{index}}" >
+  <!-- data-index ="实参" -->
+    {{item.name}}
+  </view>
 </view>
