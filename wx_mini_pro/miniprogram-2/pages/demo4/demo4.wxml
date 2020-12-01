@@ -10,12 +10,12 @@
 <rich-text nodes="{{html}}"></rich-text>
 
 <!-- 按钮 -->
-<button open-type="share" type="primary" size="mini" plain loading>share</button>
-<button open-type="contact" type="primary" size="mini" plain loading>contact</button>
-<button open-type="getPhoneNumber" bindgetuserinfo="getPhoneNumber" type="primary" size="mini" plain loading>getPhoneNumber</button>
-<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary" size="mini" plain loading>getUserInfo</button>
+<button open-type="share" type="primary" size="mini" plain>share</button>
+<button open-type="contact" type="primary" size="mini" plain >contact</button>
+<button open-type="getPhoneNumber" bindgetuserinfo="getPhoneNumber" type="primary" size="mini" plain >getPhoneNumber</button>
+<button open-type="getUserInfo"    bindgetuserinfo="onGetUserInfo" type="primary" size="mini" plain >getUserInfo</button>
 
-<button open-type="openSetting" type="primary" size="mini" plain loading>openSetting</button>
+<button open-type="openSetting" type="primary" size="mini" plain >openSetting</button>
 
 <button open-type="feedback" type="primary" size="mini" plain loading>feedback</button>
 

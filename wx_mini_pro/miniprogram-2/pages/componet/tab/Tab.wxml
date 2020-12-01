@@ -1,3 +1,6 @@
+
+<!--  -->
+<view>接受父向子传递的值-->{{aaa}}</view>
 <view class="title">
   <view bindtap="handleClick" wx:for="{{list}}" wx:key="id" 
   class="title_item {{item.isActive?'active':''}}" 

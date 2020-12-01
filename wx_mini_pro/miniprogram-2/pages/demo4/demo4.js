@@ -5,14 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    html:'<div ><ul style="color:red"><li>标题1</li><li>标题2</li></ul></div>',
+    html:'<div ><ul style="color:red"><li>标题1</li><li>标题2</li></ul></div>'
+  },
+// 方法
+
     "getPhoneNumber":function(e){
       console.log("getPhoneNumber",e);
     },
-    "getUserInfo":function(e) {
+    "onGetUserInfo":function(e) {
+      this.setData({
+        html:e.getPhoneNumber
+      })
       console.log("getUserInfo",e);
-    }
-  },
+    },
 
   /**
    * 生命周期函数--监听页面加载
