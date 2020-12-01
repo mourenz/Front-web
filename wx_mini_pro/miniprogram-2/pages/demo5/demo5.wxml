@@ -31,3 +31,5 @@ open-type="redirect" 重定向 关闭当前页面 跳转到其他页面
 <!-- 组件 【需要在xx.json文件配置】 --> 
 <!-- 父向子传递 -->
 <Tab aaa="12345a"></Tab>
+
+<Tab navItemArray="{{list}}" binditemClick="handleItemClick"></Tab>

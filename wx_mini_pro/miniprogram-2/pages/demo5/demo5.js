@@ -18,7 +18,21 @@ Page({
         value:"balana",
       }
     ],
-    checkValue:[]
+    checkValue:[],
+    list:[
+      {
+        id:1,
+        name:"首页",
+        isActive:true
+      },
+      {
+        id:2,
+        name:"分类",
+        isActive:false
+      }
+    ],
+    
+
   },
   //单选
   getRadioVlaue:function(e){
@@ -34,8 +48,23 @@ Page({
     this.setData({
       checkValue:values
     })
-    
-    
+  },
+
+  handleItemClick:function(e){
+    console.log("子触发了父函数",e);
+    const {index} = e.detail;
+    let {list} = this.data;  // 这是获取本实例中的data对象中的list
+    list.forEach((v,i)=>{
+      if(i===index){
+        v.isActive = true;
+      }else{
+        v.isActive = false;
+      }
+    })
+    //重新放回
+    this.setData({
+      list
+    })
   },
 
   /**
