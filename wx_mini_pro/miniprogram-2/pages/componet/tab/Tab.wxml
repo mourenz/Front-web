@@ -8,4 +8,7 @@
   <!-- data-index ="实参" -->
     {{item.name}}
   </view>
+  <view class="" hover-class="none" hover-stop-propagation="false">
+    <slot></slot><!--slot是占位符-->
+  </view>
 </view>

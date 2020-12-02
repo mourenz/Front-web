@@ -32,4 +32,17 @@ open-type="redirect" 重定向 关闭当前页面 跳转到其他页面
 <!-- 父向子传递 -->
 <Tab aaa="12345a"></Tab>
 
-<Tab navItemArray="{{list}}" binditemClick="handleItemClick"></Tab>
+<Tab navItemArray="{{list}}" binditemClick="handleItemClick">
+    <view class="" hover-class="none" hover-stop-propagation="false">
+      使用组件中的slot占位符
+    </view>
+    <block wx:if="{{list[0].isActive}}">
+      0
+    </block>
+    <block wx:if="{{list[1].isActive}}">
+      1
+    </block>
+
+
+
+</Tab>
